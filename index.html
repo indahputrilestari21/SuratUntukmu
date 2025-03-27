@@ -46,6 +46,44 @@
             color: #b71c1c;
             font-weight: bold;
         }
+        .envelope-container {
+            text-align: center;
+        }
+        .envelope-container h2 {
+            color: #b71c1c;
+            margin-bottom: 10px;
+        }
+        .envelope {
+            width: 150px;
+            height: 100px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            margin-top: 20px, 20px, 20px, 20px;
+        }
+        .envelope:hover {
+            transform: scale(1.1);
+        }
+        .top {
+            width: 150px;
+            height: 75px;
+            background-color: #f48fb1;
+            position: absolute;
+            clip-path: polygon(0 100%, 50% 0, 100% 100%);
+            transition: 0.5s;
+            margin-left: 100px;
+        }
+        .bottom {
+            width: 150px;
+            height: 75px;
+            background-color: #ffffff;
+            position: absolute;
+            top: 25px;
+            margin-left: 100px;
+        }
+        .envelope.open .top {
+            transform: rotateX(180deg);
+        }
     </style>
 </head>
 <body>
@@ -66,18 +104,35 @@
         <p class="message">Jawabanmu Salah Fiqi</p>
     </div>
     
+    <div id="envelope-container" class="hidden envelope-container">
+        <h2>For My Future Husband</h2>
+        <p>Click the envelope to open your love letter 💌</p>
+        <div class="envelope" onclick="openLetter()">
+            <div class="top"></div>
+            <div class="bottom"></div>
+        </div>
+    </div>
+    
     <script>
         function correctAnswer() {
             document.getElementById('intro').classList.add('hidden');
             document.getElementById('correct').classList.remove('hidden');
             setTimeout(() => {
-                window.location.href = 'letter.html';
+                document.getElementById('correct').classList.add('hidden');
+                document.getElementById('envelope-container').classList.remove('hidden');
             }, 2000);
         }
         
         function wrongAnswer() {
             document.getElementById('intro').classList.add('hidden');
             document.getElementById('wrong').classList.remove('hidden');
+        }
+        
+        function openLetter() {
+            document.querySelector('.envelope').classList.add('open');
+            setTimeout(() => {
+                window.location.href = 'letter.html';
+            }, 1000);
         }
     </script>
 </body>

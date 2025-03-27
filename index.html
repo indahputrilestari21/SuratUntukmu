@@ -120,7 +120,7 @@
             setTimeout(() => {
                 document.getElementById('correct').classList.add('hidden');
                 document.getElementById('envelope-container').classList.remove('hidden');
-            }, 2000);
+            });
         }
         
         function wrongAnswer() {
@@ -132,7 +132,7 @@
             document.querySelector('.envelope').classList.add('open');
             setTimeout(() => {
                 window.location.href = 'letter.html';
-            }, 2000);
+            });
         }
     </script>
 </body>

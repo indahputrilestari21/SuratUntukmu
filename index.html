@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fce4ec;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #b71c1c;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button-container .ayang {
+            background-color: #f48fb1;
+            color: white;
+        }
+        .button-container .indah {
+            background-color: #ffffff;
+            color: #b71c1c;
+        }
+        .message {
+            font-size: 24px;
+            color: #b71c1c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="intro">
+        <h1>Halo sayangku</h1>
+        <p>Kamu bisa tebak kah aku siapa?</p>
+        <div class="button-container">
+            <button class="ayang" onclick="correctAnswer()">Ayang</button>
+            <button class="indah" onclick="wrongAnswer()">Indah</button>
+        </div>
+    </div>
+    
+    <div id="correct" class="hidden">
+        <p class="message">Jawaban Ayang Benar</p>
+    </div>
+    
+    <div id="wrong" class="hidden">
+        <p class="message">Jawabanmu Salah Fiqi</p>
+    </div>
+    
+    <script>
+        function correctAnswer() {
+            document.getElementById('intro').classList.add('hidden');
+            document.getElementById('correct').classList.remove('hidden');
+            setTimeout(() => {
+                window.location.href = 'letter.html';
+            }, 2000);
+        }
+        
+        function wrongAnswer() {
+            document.getElementById('intro').classList.add('hidden');
+            document.getElementById('wrong').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
